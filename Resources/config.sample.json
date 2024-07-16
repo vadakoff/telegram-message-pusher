@@ -1,0 +1,6 @@
+﻿{
+    "ConnectionStrings": "server=<host>;uid=<user>;pwd=<password>;database=<db>",
+    "LoopIntervalSeconds": 10,
+    "ChatId": "-100<chatId>",
+    "AccessToken": "accessToken"
+}
