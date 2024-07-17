@@ -41,12 +41,6 @@ class MessagePusher
 
 class Program
 {
-    private static async Task<int> FooAsync()
-    {
-        await Task.Run(() => { Console.WriteLine("Run FooAsync() {0:T}", DateTime.Now); });
-        return 1;
-    }
-
     static async Task Main(string[] args)
     {
         var config = ConfigBuilder.Build("config.json");

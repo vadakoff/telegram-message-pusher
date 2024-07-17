@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using System.Text;
 using Domain;
 using Service.Settings;
 using Telegram.Bot.Types;
@@ -13,9 +14,10 @@ class MessageBuilder(Post post, Config config)
     private readonly Post _post = post;
     private readonly Config _config = config;
 
-    public async Task<string> TemplateInterpolateAsync(string templateFilename)
+    private async Task<string> TemplateInterpolateAsync(string templateFilename)
     {
-        var tpl = await System.IO.File.ReadAllTextAsync(templateFilename);
+        var fullPathTemplateFilename = Path.Combine(Directory.GetCurrentDirectory(), templateFilename);
+        var tpl = await System.IO.File.ReadAllTextAsync(fullPathTemplateFilename, Encoding.UTF8);
         var (size, capacity) = HumanBytes.Calculate(post.Size);
         
         return String.Format(
