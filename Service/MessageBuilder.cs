@@ -44,7 +44,7 @@ class MessageBuilder(Post post, Config config)
         [
             new InputMediaPhoto($"https://what2play.xyz/content/{post.Slug}/images/screenshot_0")
             {
-                Caption = await self.TemplateInterpolateAsync("index.html"),
+                Caption = await self.TemplateInterpolateAsync("template.html"),
                 ParseMode = ParseMode.Html,
             },
             new InputMediaPhoto($"https://what2play.xyz/content/{post.Slug}/images/screenshot_1"),
